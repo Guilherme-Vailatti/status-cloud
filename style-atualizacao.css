@@ -1,0 +1,304 @@
+
+body {
+    font-family: "Roboto", sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    margin: 0;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    max-height: 50px;
+}
+
+h1 {
+    color: #2ecc71; 
+    font-weight: 400;
+}
+
+.servico {
+    position: relative;
+    background-color: #ecf0f1;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.servico:hover {
+    background-color: #ddd;
+}
+
+.servico span {
+    padding: 10px;
+    font-family: "Roboto", sans-serif;
+    text-align: left;
+    font-weight: 500;
+    margin-bottom: 5px;
+    margin-right: 10px;
+    margin-right: 10px;
+    align-self: center;
+    flex-grow: 1;
+    overflow: hidden; 
+}
+
+
+.updateBtn {
+    padding: 10px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    min-width: 100px;
+    background-color: white;
+}
+
+
+.updateBtn.operacional {
+    background-color: #e4e4e4;
+    color: rgb(0, 0, 0);
+}
+
+.updateBtn.operacional.active {
+    background-color: #2ecc71;
+    color: #ffffff;
+}
+
+.servico.selected .updateBtn.operacional,
+.updateBtn.operacional:hover {
+    background-color: #2ecc71;
+    color: #ffffff;
+}
+
+.updateBtn.instabilidade {
+    background-color: #e4e4e4;
+    color: rgb(0, 0, 0);
+}
+.updateBtn.instabilidade.active {
+    background-color: #e7d535de;
+    color: #ffffff;
+}
+
+.servico.selected .updateBtn.instabilidade,
+.updateBtn.instabilidade:hover {
+    background-color: #e7d535de;
+    color: #ffffff;
+}
+
+
+.updateBtn.indisponibilidade {
+    background-color: #e4e4e4;
+    color: rgb(0, 0, 0);
+}
+
+.updateBtn.indisponibilidade.active {
+    background-color: #e74c3c;
+    color: #ffffff;
+}
+
+.servico.selected .updateBtn.indisponibilidade,
+.updateBtn.indisponibilidade:hover {
+    background-color: #e74c3c;
+    color: #ffffff;
+}
+
+.updateBtn.active {
+    background-color: #4CAF50; /* Cor de fundo ativa */
+    color: white;
+}
+
+.updateBtn.active:hover {
+    background-color: #45a049; /* Cor de fundo ativa no hover */
+}
+
+
+
+
+/* ----- MODAL --------*/
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    width: 100%;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.modal-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.modal-content.operacional {
+    border: 2px solid #2ecc71;
+}
+.modal-content.instabilidade {
+    border: 2px solid #e7d535de;
+}
+.modal-content.indisponibilidade {
+    border: 2px solid #e74c3c;
+}
+
+.modal-content input,
+.modal-content textarea {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.modal-content button {
+    display: inline-block;
+    width: calc(50% - 15px);
+    margin-top: 50px;
+    margin-right: 5px;
+    padding: 10px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.modal-content button:hover {
+    background-color: #2980b9;
+}
+
+.modal-cancel {
+    display: inline-block;
+    width: calc(50% - 5px); 
+    padding: 10px;
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.modal-cancel:hover {
+    background-color: #c0392b;
+}
+
+.modal-close {
+    background-color: transparent;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #aaa;
+}
+
+.modal-close:hover {
+    color: #333;
+}
+
+
+.close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px;
+    cursor: pointer;
+}
+
+
+
+/*------CHECKBOXES-----------*/
+
+
+
+.modal-check {
+    display: block;
+    position:relative;
+    padding-top: 4px;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 300;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.modal-check input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+  }
+
+  .modal-check:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+
+
+  .modal-check input:checked ~ .checkmark {
+    background-color: #2196F3;
+  }
+
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+
+  .modal-check input:checked ~ .checkmark:after {
+    display: block;
+  }
+
+  .modal-check .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }

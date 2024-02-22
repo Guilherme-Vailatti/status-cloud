@@ -1,0 +1,424 @@
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style-atualizacao.css">
+    <title>Atualizar Status</title>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Atualizar Status dos Ambientes Cloud</h1>
+        <img src="images/logo-senior.png" alt="Logo da Senior" class="logo">
+    </div>
+
+    <div class="servicos-container">
+        <div class="servico" id="servico1">
+            <span>Antares</span>
+            <button  id="statusServico1-Operacional" class="updateBtn operacional"  onclick="updateStatus(1, 'Operacional')">Operacional</button>
+            <button  id="statusServico1-Instabilidade" class="updateBtn instabilidade"  onclick="updateStatus(1, 'Instabilidade')">Instabilidade</button>
+            <button  id="statusServico1-Indisponibilidade" class="updateBtn indisponibilidade"  onclick="updateStatus(1, 'Indisponibilidade')">Indisponibilidade</button>
+        </div>
+
+        <div class="servico" id="servico2">
+            <span>Sirius</span>
+            <button id="statusServico2-Operacional" class="updateBtn operacional"  onclick="updateStatus(2, 'Operacional')">Operacional</button>
+            <button id="statusServico2-Instabilidade" class="updateBtn instabilidade"  onclick="updateStatus(2, 'Instabilidade')">Instabilidade</button>
+            <button id="statusServico2-Indisponibilidade" class="updateBtn indisponibilidade"  onclick="updateStatus(2, 'Indisponibilidade')">Indisponibilidade</button>
+        </div>
+
+        <div class="servico" id="servico3">
+            <span>Bellatrix</span>
+            <button id="statusServico3-Operacional" class="updateBtn operacional"  onclick="updateStatus(3, 'Operacional')">Operacional</button>
+            <button id="statusServico3-Instabilidade" class="updateBtn instabilidade" onclick="updateStatus(3, 'Instabilidade')">Instabilidade</button>
+            <button id="statusServico3-Indisponibilidade" class="updateBtn indisponibilidade" onclick="updateStatus(3, 'Indisponibilidade')">Indisponibilidade</button>
+        </div>
+
+        <div class="servico" id="servico4">
+            <span>Aludra</span>
+            <button id="statusServico4-Operacional" class="updateBtn operacional" onclick="updateStatus(4, 'Operacional')">Operacional</button>
+            <button id="statusServico4-Instabilidade" class="updateBtn instabilidade" onclick="updateStatus(4, 'Instabilidade')">Instabilidade</button>
+            <button id="statusServico4-Indisponibilidade" class="updateBtn indisponibilidade" onclick="updateStatus(4, 'Indisponibilidade')">Indisponibilidade</button>
+        </div>
+
+        <div class="servico" id="servico5">
+            <span>Vega</span>
+            <button id="statusServico5-Operacional" class="updateBtn operacional" onclick="updateStatus(5, 'Operacional')">Operacional</button>
+            <button id="statusServico5-Instabilidade" class="updateBtn instabilidade" onclick="updateStatus(5, 'Instabilidade')">Instabilidade</button>
+            <button id="statusServico5-Indisponibilidade" class="updateBtn indisponibilidade" onclick="updateStatus(5, 'Indisponibilidade')">Indisponibilidade</button>
+        </div>
+
+        <div class="servico" id="servico6">
+            <span>Tauri</span>
+            <button id="statusServico6-Operacional" class="updateBtn operacional" onclick="updateStatus(6, 'Operacional')">Operacional</button>
+            <button id="statusServico6-Instabilidade" class="updateBtn instabilidade" onclick="updateStatus(6, 'Instabilidade')">Instabilidade</button>
+            <button id="statusServico6-Indisponibilidade" class="updateBtn indisponibilidade" onclick="updateStatus(6, 'Indisponibilidade')">Indisponibilidade</button>
+        </div>
+
+        <div class="servico" id="servico7">
+            <span>Electra</span>
+            <button id="statusServico7-Operacional" class="updateBtn operacional" onclick="updateStatus(7, 'Operacional')">Operacional</button>
+            <button id="statusServico7-Instabilidade" class="updateBtn instabilidade" onclick="updateStatus(7, 'Instabilidade')">Instabilidade</button>
+            <button id="statusServico7-Indisponibilidade" class="updateBtn indisponibilidade" onclick="updateStatus(7, 'Indisponibilidade')">Indisponibilidade</button>
+        </div>
+
+        <div class="servico" id="servico8">
+            <span>Polaris</span>
+            <button id="statusServico8-Operacional" class="updateBtn operacional" onclick="updateStatus(8, 'Operacional')">Operacional</button>
+            <button id="statusServico8-Instabilidade" class="updateBtn instabilidade" onclick="updateStatus(8, 'Instabilidade')">Instabilidade</button>
+            <button id="statusServico8-Indisponibilidade" class="updateBtn indisponibilidade" onclick="updateStatus(8, 'Indisponibilidade')">Indisponibilidade</button>
+        </div>
+
+        <div class="servico" id="servico9">
+            <span>Altair</span>
+            <button id="statusServico9-Operacional" class="updateBtn operacional" onclick="updateStatus(9, 'Operacional')">Operacional</button>
+            <button id="statusServico9-Instabilidade" class="updateBtn instabilidade" onclick="updateStatus(9, 'Instabilidade')">Instabilidade</button>
+            <button id="statusServico9-Indisponibilidade" class="updateBtn indisponibilidade" onclick="updateStatus(9, 'Indisponibilidade')">Indisponibilidade</button>
+        </div>
+
+        <div class="servico" id="servico10">
+            <span>Deneb</span>
+            <button id="statusServico10-Operacional" class="updateBtn operacional" onclick="updateStatus(10, 'Operacional')">Operacional</button>
+            <button id="statusServico10-Instabilidade" class="updateBtn instabilidade" onclick="updateStatus(10, 'Instabilidade')">Instabilidade</button>
+            <button id="statusServico10-Indisponibilidade" class="updateBtn indisponibilidade" onclick="updateStatus(10, 'Indisponibilidade')">Indisponibilidade</button>
+        </div>
+
+    </div>
+
+    <!--MODAIS-->
+
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+          <h2>Atualizar status - <b>Antares</b></h2>
+              <label for="username">Usuário:</label>
+              <input type="text" id="usuario1" name="username" />
+              <label for="pass">Senha:</label>
+              <input type="password" id="pass" name="password" minlength="8" required />
+
+
+            <label for="justificativa1">Justificativa:</label>
+            <textarea id="justificativa1" placeholder="Digite a justificativa"></textarea>
+
+        <div class="container-check">
+            <label class="modal-check">Atualizar Status para clientes
+                <input type="checkbox">
+                <span class="checkmark"></span>
+              </label>
+            
+            
+            <label class="modal-check">Publicar notícia na página de acesso
+                <input type="checkbox">
+                <span class="checkmark"></span>
+              </label>
+              
+              <label class="modal-check">Enviar comunicado por email
+                <input type="checkbox">
+                <span class="checkmark"></span>
+              </label>
+        </div>  
+
+            <button onclick="confirmUpdate(1)">Enviar Atualização</button>
+            <button onclick="closeModal(1)">Cancelar</button>
+        </div>
+    </div>
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+          <h2>Atualizar status - <b>Sirius</b></h2>
+          <label for="username">Usuário:</label>
+          <input type="text" id="usuario2" name="username" />
+          <label for="pass">Senha:</label>
+          <input type="password" id="pass" name="password" minlength="8" required />
+
+            <label for="justificativa2">Justificativa:</label>
+            <textarea id="justificativa2" placeholder="Digite a justificativa"></textarea>
+
+            <label class="modal-check">Atualizar Status para clientes
+                <input type="checkbox">
+                <span class="checkmark"></span>
+              </label>
+            
+            
+            <label class="modal-check">Publicar notícia na página de acesso
+                <input type="checkbox">
+                <span class="checkmark"></span>
+              </label>
+              
+              <label class="modal-check">Enviar comunicado por email
+                <input type="checkbox">
+                <span class="checkmark"></span>
+              </label>
+
+            <button onclick="confirmUpdate(2)">Enviar Atualização</button>
+            <button onclick="closeModal(2)">Cancelar</button>
+        </div>
+    </div>
+    <div id="modal3" class="modal">
+        <div class="modal-content">
+          <h2>Atualizar status - <b>Bellatrix</b></h2>
+          <label for="username">Usuário:</label>
+          <input type="text" id="usuario3" name="username" />
+          <label for="pass">Senha:</label>
+          <input type="password" id="pass" name="password" minlength="8" required />
+
+            <label for="justificativa3">Justificativa:</label>
+            <textarea id="justificativa3" placeholder="Digite a justificativa"></textarea>
+
+            <label class="modal-check">Atualizar Status para clientes
+                <input type="checkbox">
+                <span class="checkmark"></span>
+              </label>
+            
+            
+            <label class="modal-check">Publicar notícia na página de acesso
+                <input type="checkbox">
+                <span class="checkmark"></span>
+              </label>
+              
+              <label class="modal-check">Enviar comunicado por email
+                <input type="checkbox">
+                <span class="checkmark"></span>
+              </label>
+
+            <button onclick="confirmUpdate(3)">Enviar Atualização</button>
+            <button onclick="closeModal(3)">Cancelar</button>
+        </div>
+    </div>
+    <div id="modal4" class="modal">
+        <div class="modal-content">
+          <h2>Atualizar status - <b>Aludra</b></h2>
+          <label for="username">Usuário:</label>
+          <input type="text" id="usuario4" name="username" />
+          <label for="pass">Senha:</label>
+          <input type="password" id="pass" name="password" minlength="8" required />
+
+            <label for="justificativa4">Justificativa:</label>
+            <textarea id="justificativa4" placeholder="Digite a justificativa"></textarea>
+
+            <label class="modal-check">Atualizar Status para clientes
+                <input type="checkbox">
+                <span class="checkmark"></span>
+              </label>
+            
+            
+            <label class="modal-check">Publicar notícia na página de acesso
+                <input type="checkbox">
+                <span class="checkmark"></span>
+              </label>
+              
+              <label class="modal-check">Enviar comunicado por email
+                <input type="checkbox">
+                <span class="checkmark"></span>
+              </label>
+
+            <button onclick="confirmUpdate(4)">Enviar Atualização</button>
+            <button onclick="closeModal(4)">Cancelar</button>
+        </div>
+    </div>
+    <div id="modal5" class="modal">
+        <div class="modal-content">
+          <h2>Atualziar status - <b>Vega</b></h2>
+          <label for="username">Usuário:</label>
+          <input type="text" id="usuario5" name="username" />
+          <label for="pass">Senha:</label>
+          <input type="password" id="pass" name="password" minlength="8" required />
+
+            <label for="justificativa5">Justificativa:</label>
+            <textarea id="justificativa5" placeholder="Digite a justificativa"></textarea>
+
+            <label class="modal-check">Atualizar Status para clientes
+                <input type="checkbox">
+                <span class="checkmark"></span>
+              </label>
+            
+            
+            <label class="modal-check">Publicar notícia na página de acesso
+                <input type="checkbox">
+                <span class="checkmark"></span>
+              </label>
+              
+              <label class="modal-check">Enviar comunicado por email
+                <input type="checkbox">
+                <span class="checkmark"></span>
+              </label>
+
+            <button onclick="confirmUpdate(5)">Enviar Atualização</button>
+            <button onclick="closeModal(5)">Cancelar</button>
+        </div>
+    </div>
+    <div id="modal6" class="modal">
+        <div class="modal-content">
+          <h2>Atualizar status - <b>Tauri</b></h2>
+          <label for="username">Usuário:</label>
+          <input type="text" id="usuario6" name="username" />
+          <label for="pass">Senha:</label>
+          <input type="password" id="pass" name="password" minlength="8" required />
+
+            <label for="justificativa6">Justificativa:</label>
+            <textarea id="justificativa6" placeholder="Digite a justificativa"></textarea>
+
+            <label class="modal-check">Atualizar Status para clientes
+                <input type="checkbox">
+                <span class="checkmark"></span>
+              </label>
+            
+            
+            <label class="modal-check">Publicar notícia na página de acesso
+                <input type="checkbox">
+                <span class="checkmark"></span>
+              </label>
+              
+              <label class="modal-check">Enviar comunicado por email
+                <input type="checkbox">
+                <span class="checkmark"></span>
+              </label>
+
+            <button onclick="confirmUpdate(6)">Enviar Atualização</button>
+            <button onclick="closeModal(6)">Cancelar</button>
+        </div>
+    </div>
+    <div id="modal7" class="modal">
+        <div class="modal-content">
+          <h2>Atualizar status - <b>Electra</b></h2>
+          <label for="username">Usuário:</label>
+          <input type="text" id="usuario7" name="username" />
+          <label for="pass">Senha:</label>
+          <input type="password" id="pass" name="password" minlength="8" required />
+
+            <label for="justificativa7">Justificativa:</label>
+            <textarea id="justificativa7" placeholder="Digite a justificativa"></textarea>
+
+            <label class="modal-check">Atualizar Status para clientes
+                <input type="checkbox">
+                <span class="checkmark"></span>
+              </label>
+            
+            
+            <label class="modal-check">Publicar notícia na página de acesso
+                <input type="checkbox">
+                <span class="checkmark"></span>
+              </label>
+              
+              <label class="modal-check">Enviar comunicado por email
+                <input type="checkbox">
+                <span class="checkmark"></span>
+              </label>
+
+            <button onclick="confirmUpdate(7)">Enviar Atualização</button>
+            <button onclick="closeModal(7)">Cancelar</button>
+        </div>
+    </div>
+    <div id="modal8" class="modal">
+        <div class="modal-content">
+          <h2>Atualizar status - <b>Polaris</b></h2>
+          <label for="username">Usuário:</label>
+          <input type="text" id="usuario8" name="username" />
+          <label for="pass">Senha:</label>
+          <input type="password" id="pass" name="password" minlength="8" required />
+
+            <label for="justificativa8">Justificativa:</label>
+            <textarea id="justificativa8" placeholder="Digite a justificativa"></textarea>
+
+            <label class="modal-check">Atualizar Status para clientes
+                <input type="checkbox">
+                <span class="checkmark"></span>
+              </label>
+            
+            
+            <label class="modal-check">Publicar notícia na página de acesso
+                <input type="checkbox">
+                <span class="checkmark"></span>
+              </label>
+              
+              <label class="modal-check">Enviar comunicado por email
+                <input type="checkbox">
+                <span class="checkmark"></span>
+              </label>
+
+            <button onclick="confirmUpdate(8)">Enviar Atualização</button>
+            <button onclick="closeModal(8)">Cancelar</button>
+        </div>
+    </div>
+    <div id="modal9" class="modal">
+        <div class="modal-content">
+          <h2>Atualizar status - <b>Altair</b></h2>
+          <label for="username">Usuário:</label>
+          <input type="text" id="usuario9" name="username" />
+          <label for="pass">Senha:</label>
+          <input type="password" id="pass" name="password" minlength="8" required />
+
+            <label for="justificativa9">Justificativa:</label>
+            <textarea id="justificativa9" placeholder="Digite a justificativa"></textarea>
+
+            <label class="modal-check">Atualizar Status para clientes
+                <input type="checkbox">
+                <span class="checkmark"></span>
+              </label>
+            
+            
+            <label class="modal-check">Publicar notícia na página de acesso
+                <input type="checkbox">
+                <span class="checkmark"></span>
+              </label>
+              
+              <label class="modal-check">Enviar comunicado por email
+                <input type="checkbox">
+                <span class="checkmark"></span>
+              </label>
+
+            <button onclick="confirmUpdate(9)">Enviar Atualização</button>
+            <button onclick="closeModal(9)">Cancelar</button>
+        </div>
+    </div>
+    <div id="modal10" class="modal">
+        <div class="modal-content">
+          <h2>Atualizar status - <b>Deneb</b></h2>
+          <label for="username">Usuário:</label>
+          <input type="text" id="usuario10" name="username" />
+          <label for="pass">Senha:</label>
+          <input type="password" id="pass" name="password" minlength="8" required />
+
+            <label for="justificativa10">Justificativa:</label>
+            <textarea id="justificativa10" placeholder="Digite a justificativa"></textarea>
+
+            <label class="modal-check">Atualizar Status para clientes
+                <input type="checkbox">
+                <span class="checkmark"></span>
+              </label>
+            
+            
+            <label class="modal-check">Publicar notícia na página de acesso
+                <input type="checkbox">
+                <span class="checkmark"></span>
+              </label>
+              
+              <label class="modal-check">Enviar comunicado por email
+                <input type="checkbox">
+                <span class="checkmark"></span>
+              </label>
+
+            <button onclick="confirmUpdate(10)">Enviar Atualização</button>
+            <button onclick="closeModal(10)">Cancelar</button>
+        </div>
+    </div>
+
+
+    <script src="script-atualizacao.js"></script>
+    <script>
+      window.addEventListener('DOMContentLoaded', function() {
+          loadSavedStatus();
+      });
+      
+      function loadSavedStatus() {
+          let savedStatus = JSON.parse(localStorage.getItem('savedStatus')) || {};
+          for (let servicoId in savedStatus) {
+              updateMainPageStatus(servicoId, savedStatus[servicoId]);
+          }
+      }
+      </script>
+
+
+</body>
+</html>
