@@ -77,7 +77,7 @@ window.addEventListener('justificativaAtualizada', function(event) {
     atualizarDropdownJustificativa(servicoId, justificativa);
 });
 
-// Adicione este trecho para atualizar automaticamente as justificativas sempre que uma nova justificativa for salva
+
 window.addEventListener('storage', function(event) {
     if (event.key.startsWith('justificativaServico')) {
         carregarJustificativas();
