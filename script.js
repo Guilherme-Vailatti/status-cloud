@@ -33,7 +33,7 @@ function updateMainPageStatus(servicoId, status) {
         statusElement.textContent = status;
         statusElement.className = 'status ' + status.toLowerCase();
     } else {
-        console.error(`Elemento de status não encontrado para o serviço ${servicoId}`);
+        console.error(`Status não encontrado para o serviço ${servicoId}`);
     }
     
 }
@@ -77,6 +77,12 @@ window.addEventListener('justificativaAtualizada', function(event) {
     atualizarDropdownJustificativa(servicoId, justificativa);
 });
 
+// Adicione este trecho para atualizar automaticamente as justificativas sempre que uma nova justificativa for salva
+window.addEventListener('storage', function(event) {
+    if (event.key.startsWith('justificativaServico')) {
+        carregarJustificativas();
+    }
+});
 
 
 
