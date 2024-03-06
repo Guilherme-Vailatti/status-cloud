@@ -1,4 +1,3 @@
-
 function atualizarStatusServicos() {
     for (let key in localStorage) {
         if (key.startsWith('atualizacaoServico')) {
@@ -8,7 +7,8 @@ function atualizarStatusServicos() {
 
             updateMainPageStatus(servicoId, status);
 
-            salvarStatusServico(servicoId, status);
+            // Remover a atualização após ter sido aplicada
+            localStorage.removeItem(key);
         }
     }
 }
@@ -56,33 +56,36 @@ function getStatusServico(servicoId) {
 
 
 
-
-function carregarJustificativas() {
-    for (let servicoId = 1; servicoId <= 10; servicoId++) {
-        let justificativa = localStorage.getItem(`justificativaServico${servicoId}`);
-        if (justificativa) {
-            let dropdownContent = document.getElementById(`dropdownServico${servicoId}`);
-            if (dropdownContent) {
-                dropdownContent.innerHTML = `<p>${justificativa}</p>`;
-            }
+// Função para carregar e exibir os textos no dropdown da página principal
+function carregarTextosDropdown() {
+    // Verifica se há um texto personalizado armazenado
+    let textoPersonalizado = localStorage.getItem('textoPersonalizado');
+    
+    // Se houver um texto personalizado, exibe-o no dropdown
+    if (textoPersonalizado) {
+        exibirTextoDropdown(textoPersonalizado);
+    } else {
+        // Caso contrário, verifica se há textos pré-definidos armazenados
+        let textosPredefinidos = JSON.parse(localStorage.getItem('textosPredefinidos')) || [];
+        
+        // Se houver textos pré-definidos, exibe o primeiro no dropdown
+        if (textosPredefinidos.length > 0) {
+            exibirTextoDropdown(textosPredefinidos[0]);
         }
     }
 }
 
-carregarJustificativas();
+// Função para exibir o texto no dropdown da página principal
+function exibirTextoDropdown(texto) {
+    let dropdownContent = document.getElementById('dropdownTextos');
+    dropdownContent.innerHTML = `<p>${texto}</p>`;
+}
 
-window.addEventListener('justificativaAtualizada', function(event) {
-    let servicoId = event.detail.servicoId;
-    let justificativa = event.detail.justificativa;
-    atualizarDropdownJustificativa(servicoId, justificativa);
-});
+// Chama a função para carregar e exibir os textos no dropdown ao carregar a página
+carregarTextosDropdown();
 
 
-window.addEventListener('storage', function(event) {
-    if (event.key.startsWith('justificativaServico')) {
-        carregarJustificativas();
-    }
-});
+
 
 
 

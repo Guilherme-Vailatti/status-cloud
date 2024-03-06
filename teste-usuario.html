@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -90,314 +88,1029 @@
 
     <!--MODAIS-->
 
+
+    <!--ANTARES-->
+
     <div id="modal1" class="modal">
         <div class="modal-content">
           <h2>Atualizar status - <b>Antares</b></h2>
-              <label for="username">Usuário:</label>
-              <input type="text" id="usuario1" name="username" />
-              <label for="pass">Senha:</label>
-              <input type="password" id="pass" name="password" minlength="8" required />
-
-
             <label for="justificativa1">Justificativa:</label>
-            <textarea id="justificativa1" placeholder="Digite a justificativa"></textarea>
+            <textarea id="justificativa1" placeholder="Digite a justificativa (controle interno)"></textarea>
 
-        <div class="container-check">
-            <label class="modal-check">Atualizar Status para clientes
-                <input type="checkbox">
-                <span class="checkmark"></span>
-              </label>
-            
-            
-            <label class="modal-check">Publicar notícia na página de acesso
-                <input type="checkbox">
-                <span class="checkmark"></span>
-              </label>
-              
-              <label class="modal-check">Enviar comunicado por email
-                <input type="checkbox">
-                <span class="checkmark"></span>
-              </label>
-        </div>  
 
+            
+      <div class="container-check">
+        <div>
+            <label class="modal-check" onclick="openAba(1, 'clientes')">Atualizar Status para clientes
+                <input id="checkboxClientes1" type="checkbox">
+                <span class="checkmark"></span>
+              </label>
+        </div>
+              <div id="aba-clientes1" class="aba-container" style="display: none;">
+                <h3>Opções para <b>Atualizar Status</b> para clientes:</h3>
+                <label class="check-aba"> <input type="checkbox" id="opcao1_cliente1" >O ambiente Antares está operando normalmente.</label>
+                <label class="check-aba"><input type="checkbox" id="opcao2_cliente1" >Estamos enfrentando instabilidade momentânea no ambiente.</label>
+                <label class="check-aba"><input type="checkbox" id="opcao3_cliente1">O ambiente está momentâneamente indisponível. </label>
+                
+                <div class="text-area-options">
+                <label for="statusPersonalizado1_cliente1"></label>
+            <textarea id="statusPersonalizado1_cliente1" name="statusPersonalizado_cliente1" placeholder="Personalize o Status"></textarea>
+                </div>
+
+                <div class="botoes">
+                  <button onclick="salvarOpcoes('clientes1')">Salvar</button>
+                  <button onclick="fecharAba('clientes1','checkboxClientes1')">Cancelar</button>
+                  
+              </div>
+              </div>
+            
+          <div>
+            <label class="modal-check" onclick="openAba(1, 'noticia')">Publicar notícia na página de acesso
+                <input id="checkboxNoticias1" type="checkbox">
+                <span class="checkmark"></span>
+              </label>
+
+              <div id="aba-noticia1" class="aba-container" style="display: none;">
+                <h3>Opções para publicar <b>notícia</b> na página de acesso:</h3>
+                <label class="check-aba"><input type="checkbox" id="opcao1_cliente1" >Estamos enfrentando uma instabilidade momentânea 
+                no ambiente Antares. Nossa equipe está atuando para a rápida estabilização do ambiente.</label>
+                <label class="check-aba"><input type="checkbox" id="opcao2_cliente1">Identificamos uma instabilidade no ambiente Antares.
+                Nossa equipe técnica está atuando para a rápida normalização do ambiente.</label>
+                <label class="check-aba"><input type="checkbox" id="opcao3_cliente1">Informamos que a instabilidade relatada no ambiente 
+                Antares foi completamente normalizada. Salientamos que poderá haver lentidão momentânea no acesso, pois 
+              vários usuários entrarão no ambinete simultâneamente.</label>
+
+                <div class="text-area-options">
+                  <label for="noticiaPersonalizada1"></label>
+              <textarea id="noticiaPersonalizada1" placeholder="Personalize a Notícia"></textarea>
+                  </div>
+
+
+                  <div class="botoes">
+                    <button onclick="salvarOpcoes('noticia1')">Salvar</button>
+                    <button onclick="fecharAba('noticia1', 'checkboxNoticias1')">Cancelar</button>
+                    
+                  </div>
+             </div>
+          </div>
+
+          <div>
+              <label class="modal-check" onclick="openAba(1, 'email')">Enviar comunicado por email
+                <input id="checkboxEmail1" type="checkbox">
+                <span class="checkmark"></span>
+              </label>
+
+              <div id="aba-email1" class="aba-container" style="display: none;">
+                <h3>Opções para enviar <b>comunicado por email</b>:</h3>
+                <label class="check-aba"><input type="checkbox">Informamos que estamos enfrentando uma instabilidade no ambiente Antares, o que tem afetado o acesso e o funcionamento adequado do serviço. 
+                  Nossa equipe técnica está ciente do problema e trabalhando intensamente para resolvê-lo o mais rápido possível.
+                  Dentro de uma hora, enviaremos uma atualização sobre a situação e as medidas que estamos adotando para solucionar o problema. Agradecemos a compreensão.
+                  </label>
+                <label class="check-aba"><input type="checkbox">Estamos enfrentando uma indisponibilidade momentânea no ambiente Antares. Nossa equipe técnica está tomando todas as medidas necessárias para restaurar a estabilidade do sistema o mais rápido possível.
+                  Dentro de 1 hora enviaremos atualizações. Agradecemos a compreensão.
+                  </label>
+                <label class="check-aba"><input type="checkbox">Informamos que a causa raiz da instabilidade no ambiente Antares já foi identificada. Nossa equipe está focada em solucionar essa questão o mais rápido possível. 
+                  Nossa previsão para reestabelecer o serviço é de 1 hora. Agradecemos a compreensão.
+                  </label>
+                <label class="check-aba"><input type="checkbox">Informamos que o acesso ao sistema Antares foi completamente normalizado. Todas as funcionalidades estão operando sem interrupções. 
+                  Nossa equipe técnica empregou todos os seus esforços para a rápida solução do ocorrido. Agradecemos a compreensão.
+                  Agradecemos a sua compreensão.
+                  </label>
+                <div class="text-area-options">
+                  <label for="emailPersonalizado1"></label>
+              <textarea id="emailaPersonalizado1" placeholder="Personalize o Email"></textarea>
+                  </div>
+
+                  <div class="botoes">
+                    <button onclick="salvarOpcoes('email1')">Salvar</button>
+                    <button onclick="fecharAba('email1','checkboxEmail1')">Cancelar</button>
+                    
+                  </div>
+              </div>
+          </div>
+
+          </div>  
+
+
+    
             <button onclick="confirmUpdate(1)">Enviar Atualização</button>
             <button onclick="closeModal(1)">Cancelar</button>
         </div>
     </div>
+
+
+
+
+
+  <!--SIRIUS-->
+
     <div id="modal2" class="modal">
         <div class="modal-content">
           <h2>Atualizar status - <b>Sirius</b></h2>
-          <label for="username">Usuário:</label>
-          <input type="text" id="usuario2" name="username" />
-          <label for="pass">Senha:</label>
-          <input type="password" id="pass" name="password" minlength="8" required />
-
             <label for="justificativa2">Justificativa:</label>
             <textarea id="justificativa2" placeholder="Digite a justificativa"></textarea>
 
-            <label class="modal-check">Atualizar Status para clientes
-                <input type="checkbox">
-                <span class="checkmark"></span>
-              </label>
+
+              <div class="container-check">
+              <div>
+                <label class="modal-check" onclick="openAba(2, 'clientes')">Atualizar Status para clientes
+                    <input id="checkboxClientes2" type="checkbox">
+                    <span class="checkmark"></span>
+                  </label>
+              </div>
+              <div id="aba-clientes2" class="aba-container" style="display: none;">
+              <h3>Opções para <b>Atualizar Status</b> para clientes:</h3>
+                <label class="check-aba"><input type="checkbox" id="opcao1_cliente2" >O ambiente Sirius está operando normalmente.</label>
+                <label class="check-aba"><input type="checkbox" id="opcao2_cliente2" >Estamos enfrentando instabilidade momentânea no ambiente.</label>
+                <label class="check-aba"><input type="checkbox" id="opcao3_cliente2">O ambiente está momentâneamente indisponível. </label>
+                
+                <div class="text-area-options">
+                <label for="statusPersonalizado2"></label>
+            <textarea id="statusPersonalizado2" placeholder="Personalize o Status"></textarea>
+                </div>
+
+                <div class="botoes">
+                  <button onclick="salvarOpcoes('clientes2')">Salvar</button>
+                  <button onclick="fecharAba('clientes2', 'checkboxClientes2')">Cancelar</button>
+                  
+              </div>
+              </div>
+
+              <div>
+                <label class="modal-check" onclick="openAba(2, 'noticia')">Publicar notícia na página de acesso
+                  <input id="checkboxNoticias2" type="checkbox">
+                  <span class="checkmark"></span>
+                </label>
+  
+                <div id="aba-noticia2" class="aba-container" style="display: none;">
+                  <h3>Opções para Publicar notícia na página de acesso</h3>
+                  <label class="check-aba"><input type="checkbox">Estamos enfrentando uma instabilidade momentânea 
+                    no ambiente Sirius. Nossa equipe está atuando para a rápida estabilização do ambiente.</label>
+                  <label class="check-aba"><input type="checkbox">Identificamos uma instabilidade no ambiente Sirius.
+                    Nossa equipe técnica está atuando para a rápida normalização do ambiente.</label>
+                  <label class="check-aba"><input type="checkbox">Informamos que a instabilidade relatada no ambiente 
+                    Sirius foi completamente normalizada. Salientamos que poderá haver lentidão momentânea no acesso, pois 
+                  vários usuários entrarão no ambinete simultâneamente.</label>
+  
+                  <div class="text-area-options">
+                    <label for="noticiaPersonalizada2"></label>
+                <textarea id="noticiaPersonalizada2" placeholder="Personalize a Notícia"></textarea>
+                    </div>
+
+                    <div class="botoes">
+                      <button onclick="salvarOpcoes('noticia2')">Salvar</button>
+                      <button onclick="fecharAba('noticia2','checkboxNoticias2')">Cancelar</button>
+                      
+                    </div>
+               </div>
+            </div>      
             
-            
-            <label class="modal-check">Publicar notícia na página de acesso
-                <input type="checkbox">
-                <span class="checkmark"></span>
-              </label>
-              
-              <label class="modal-check">Enviar comunicado por email
-                <input type="checkbox">
+            <div>
+              <label class="modal-check" onclick="openAba(2, 'email')">Enviar comunicado por email
+                <input id="checkboxEmail2" type="checkbox">
                 <span class="checkmark"></span>
               </label>
 
+              <div id="aba-email2" class="aba-container" style="display: none;">
+                <h3>Opções para Enviar comunicado por email</h3>
+                <label class="check-aba"><input type="checkbox">Informamos que estamos enfrentando uma instabilidade no ambiente Sirius, o que tem afetado o acesso e o funcionamento adequado do serviço. 
+                  Nossa equipe técnica está ciente do problema e trabalhando intensamente para resolvê-lo o mais rápido possível.
+                  Dentro de uma hora, enviaremos uma atualização sobre a situação e as medidas que estamos adotando para solucionar o problema. Agradecemos a compreensão.</label>
+                <label class="check-aba"><input type="checkbox">Estamos enfrentando uma indisponibilidade momentânea no ambiente Sirius. Nossa equipe técnica está tomando todas as medidas necessárias para restaurar a estabilidade do sistema o mais rápido possível.
+                  Dentro de 1 hora enviaremos atualizações. Agradecemos a compreensão.</label>
+                <label class="check-aba"><input type="checkbox">Informamos que a causa raiz da instabilidade no ambiente Sirius já foi identificada. Nossa equipe está focada em solucionar essa questão o mais rápido possível. 
+                  Nossa previsão para reestabelecer o serviço é de 1 hora. Agradecemos a compreensão.</label>
+                  <label class="check-aba"><input type="checkbox">Informamos que o acesso ao ambiente Sirius foi completamente normalizado. Todas as funcionalidades estão operando sem interrupções. 
+                    Nossa equipe técnica empregou todos os seus esforços para a rápida solução do ocorrido. Agradecemos a compreensão.</label>
+                <div class="text-area-options">
+                  <label for="emailPersonalizado2"></label>
+              <textarea id="emailaPersonalizado2" placeholder="Personalize o Email"></textarea>
+                  </div>
+
+                  <div class="botoes">
+                    <button onclick="salvarOpcoes('email2')">Salvar</button>
+                    <button onclick="fecharAba('email2','checkboxEmail2')">Cancelar</button>
+                    
+                  </div>
+              </div>
+          </div>
+
+          </div>  
+
+
+    
             <button onclick="confirmUpdate(2)">Enviar Atualização</button>
             <button onclick="closeModal(2)">Cancelar</button>
         </div>
     </div>
+
+
+
+
+  <!--BELLATRIX-->
+
+
     <div id="modal3" class="modal">
         <div class="modal-content">
           <h2>Atualizar status - <b>Bellatrix</b></h2>
-          <label for="username">Usuário:</label>
-          <input type="text" id="usuario3" name="username" />
-          <label for="pass">Senha:</label>
-          <input type="password" id="pass" name="password" minlength="8" required />
+            <label  for="justificativa3">Justificativa:</label>
+            <textarea  id="justificativa3" placeholder="Digite a justificativa"></textarea>
 
-            <label for="justificativa3">Justificativa:</label>
-            <textarea id="justificativa3" placeholder="Digite a justificativa"></textarea>
-
-            <label class="modal-check">Atualizar Status para clientes
-                <input type="checkbox">
+            <div class="container-check">
+              <div>
+            <label class="modal-check" onclick="openAba(3, 'clientes')">Atualizar Status para clientes
+              <input id="checkboxClientes3" type="checkbox">
                 <span class="checkmark"></span>
               </label>
+            </div>
+            <div id="aba-clientes3" class="aba-container" style="display: none;">
+              <h3>Opções para <b>Atualizar Status</b> para clientes:</h3>
+                <label class="check-aba"><input type="checkbox" id="opcao1_cliente3">O ambiente Bellatrix está operando normalmente.</label>
+                <label class="check-aba"><input type="checkbox" id="opcao2_cliente3">Estamos enfrentando instabilidade momentânea no ambiente.</label>
+                <label class="check-aba"><input type="checkbox" id="opcao3_cliente3">O ambiente está momentâneamente indisponível. </label>
+                
+                <div class="text-area-options">
+                <label for="statusPersonalizado3"></label>
+            <textarea id="statusPersonalizado3" placeholder="Personalize o Status"></textarea>
+                </div>
+                <div class="botoes">
+                  <button onclick="salvarOpcoes('clientes3')">Salvar</button>
+                  <button onclick="fecharAba('clientes3','checkboxClientes3')">Cancelar</button>
+                  
+              </div>
+              </div>
+
+              <div>
+                <label class="modal-check" onclick="openAba(3, 'noticia')">Publicar notícia na página de acesso
+                  <input id="checkboxNoticias3" type="checkbox">
+                  <span class="checkmark"></span>
+                </label>
+
+                <div id="aba-noticia3" class="aba-container" style="display: none;">
+                  <h3>Opções para Publicar notícia na página de acesso</h3>
+                  <label class="check-aba"><input type="checkbox">Estamos enfrentando uma instabilidade momentânea 
+                    no ambiente Bellatrix. Nossa equipe está atuando para a rápida estabilização do ambiente.</label>
+                  <label class="check-aba"><input type="checkbox">Identificamos uma instabilidade no ambiente Bellatrix.
+                    Nossa equipe técnica está atuando para a rápida normalização do ambiente.</label>
+                  <label class="check-aba"><input type="checkbox">Informamos que o acesso ao ambiente Bellatrix foi completamente normalizado. Todas as funcionalidades estão operando sem interrupções. 
+                    Nossa equipe técnica empregou todos os seus esforços para a rápida solução do ocorrido. Agradecemos a compreensão.</label>
+  
+                  <div class="text-area-options">
+                    <label for="noticiaPersonalizada3"></label>
+                <textarea id="noticiaPersonalizada3" placeholder="Personalize a Notícia"></textarea>
+                    </div>
+
+                    <div class="botoes">
+                      <button onclick="salvarOpcoes('noticia3')">Salvar</button>
+                      <button onclick="fecharAba('noticia3','checkboxNoticias3')">Cancelar</button>
+                      
+                    </div>
+               </div>
+            </div>
             
             
-            <label class="modal-check">Publicar notícia na página de acesso
-                <input type="checkbox">
-                <span class="checkmark"></span>
-              </label>
               
-              <label class="modal-check">Enviar comunicado por email
-                <input type="checkbox">
+            <div>
+              <label class="modal-check" onclick="openAba(3, 'email')">Enviar comunicado por email
+                <input id="checkboxEmail3" type="checkbox">
                 <span class="checkmark"></span>
               </label>
+
+              <div id="aba-email3" class="aba-container" style="display: none;">
+                <h3>Opções para Enviar comunicado por email</h3>
+                <label class="check-aba"><input type="checkbox">Informamos que estamos enfrentando uma instabilidade no ambiente Bellatrix, o que tem afetado o acesso e o funcionamento adequado do serviço. 
+                  Nossa equipe técnica está ciente do problema e trabalhando intensamente para resolvê-lo o mais rápido possível.
+                  Dentro de uma hora, enviaremos uma atualização sobre a situação e as medidas que estamos adotando para solucionar o problema. Agradecemos a compreensão.</label>
+                <label class="check-aba"><input type="checkbox">Estamos enfrentando uma indisponibilidade momentânea no ambiente Bellatrix. Nossa equipe técnica está tomando todas as medidas necessárias para restaurar a estabilidade do sistema o mais rápido possível.
+                  Dentro de 1 hora enviaremos atualizações. Agradecemos a compreensão.</label>
+                <label class="check-aba"><input type="checkbox">Informamos que a causa raiz da instabilidade no ambiente Bellatrix já foi identificada. Nossa equipe está focada em solucionar essa questão o mais rápido possível. 
+                  Nossa previsão para reestabelecer o serviço é de 1 hora. Agradecemos a compreensão.</label>
+                  <label class="check-aba"><input type="checkbox">Informamos que o acesso ao ambiente Bellatrix foi completamente normalizado. Todas as funcionalidades estão operando sem interrupções. 
+                    Nossa equipe técnica empregou todos os seus esforços para a rápida solução do ocorrido. Agradecemos a compreensão.</label>
+                <div class="text-area-options">
+                  <label for="emailPersonalizado3"></label>
+              <textarea id="emailaPersonalizado3" placeholder="Personalize o Email"></textarea>
+                  </div>
+
+                  <div class="botoes">
+                    <button onclick="salvarOpcoes('email3')">Salvar</button>
+                    <button onclick="fecharAba('email3','checkboxEmail3')">Cancelar</button>
+                    
+                  </div>
+              </div>
+          </div>
+
+          </div>  
 
             <button onclick="confirmUpdate(3)">Enviar Atualização</button>
             <button onclick="closeModal(3)">Cancelar</button>
         </div>
     </div>
+
+
+
+
+
+
+
+
     <div id="modal4" class="modal">
         <div class="modal-content">
           <h2>Atualizar status - <b>Aludra</b></h2>
-          <label for="username">Usuário:</label>
-          <input type="text" id="usuario4" name="username" />
-          <label for="pass">Senha:</label>
-          <input type="password" id="pass" name="password" minlength="8" required />
-
             <label for="justificativa4">Justificativa:</label>
             <textarea id="justificativa4" placeholder="Digite a justificativa"></textarea>
 
-            <label class="modal-check">Atualizar Status para clientes
-                <input type="checkbox">
+            <div class="container-check">
+              <div>
+            <label class="modal-check" onclick="openAba(4, 'clientes')">Atualizar Status para clientes
+              <input id="checkboxClientes4" type="checkbox">
                 <span class="checkmark"></span>
               </label>
+            </div>
+            <div id="aba-clientes4" class="aba-container" style="display: none;">
+              <h3>Opções para <b>Atualizar Status</b> para clientes:</h3>
+                <label class="check-aba"><input type="checkbox" id="opcao1_cliente4">O ambiente Bellatrix está operando normalmente.</label>
+                <label class="check-aba"><input type="checkbox" id="opcao2_cliente4" >Estamos enfrentando instabilidade momentânea no ambiente.</label>
+                <label class="check-aba"><input type="checkbox" id="opcao3_cliente4">O ambiente está momentâneamente indisponível. </label>
+                
+                <div class="text-area-options">
+                <label for="statusPersonalizado4"></label>
+            <textarea id="statusPersonalizado4" placeholder="Personalize o Status"></textarea>
+                </div>
+                <div class="botoes">
+                  <button onclick="salvarOpcoes('clientes4')">Salvar</button>
+                  <button onclick="fecharAba('clientes4','checkboxClientes4')">Cancelar</button>
+                  
+              </div>
+              </div>
+
+              <div>
+                <label class="modal-check" onclick="openAba(4, 'noticia')">Publicar notícia na página de acesso
+                  <input id="checkboxNoticias4" type="checkbox">
+                  <span class="checkmark"></span>
+                </label>
+
+                <div id="aba-noticia4" class="aba-container" style="display: none;">
+                  <h3>Opções para <b>publicar notícia</b> na página de acesso:</h3>
+                  <label class="check-aba"><input type="checkbox">Estamos enfrentando uma instabilidade momentânea 
+                    no ambiente Aludra. Nossa equipe está atuando para a rápida estabilização do ambiente.</label>
+                  <label class="check-aba"><input type="checkbox">Identificamos uma instabilidade no ambiente Aludra.
+                    Nossa equipe técnica está atuando para a rápida normalização do ambiente.</label>
+                  <label class="check-aba"><input type="checkbox">Informamos que a instabilidade relatada no ambiente 
+                   Aludra foi completamente normalizada. Agradecemos a compreensão.</label>
+  
+                  <div class="text-area-options">
+                    <label for="noticiaPersonalizada4"></label>
+                <textarea id="noticiaPersonalizada4" placeholder="Personalize a Notícia"></textarea>
+                    </div>
+
+                    <div class="botoes">
+                      <button onclick="salvarOpcoes('noticia4')">Salvar</button>
+                      <button onclick="fecharAba('noticia4','checkboxNoticias4')">Cancelar</button>
+                      
+                    </div>
+               </div>
+            </div>
             
             
-            <label class="modal-check">Publicar notícia na página de acesso
-                <input type="checkbox">
-                <span class="checkmark"></span>
-              </label>
               
-              <label class="modal-check">Enviar comunicado por email
-                <input type="checkbox">
+            <div>
+              <label class="modal-check" onclick="openAba(4, 'email')">Enviar comunicado por email
+                <input id="checkboxEmail4" type="checkbox">
                 <span class="checkmark"></span>
               </label>
+
+              <div id="aba-email4" class="aba-container" style="display: none;">
+                <h3>Opções para Enviar comunicado por email</h3>
+                <label class="check-aba"><input type="checkbox">Informamos que estamos enfrentando uma instabilidade no ambiente Aludra, o que tem afetado o acesso e o funcionamento adequado do serviço. 
+                  Nossa equipe técnica está ciente do problema e trabalhando intensamente para resolvê-lo o mais rápido possível.
+                  Dentro de uma hora, enviaremos uma atualização sobre a situação e as medidas que estamos adotando para solucionar o problema. Agradecemos a compreensão.</label>
+                <label class="check-aba"><input type="checkbox">Estamos enfrentando uma indisponibilidade momentânea no ambiente Aludra. Nossa equipe técnica está tomando todas as medidas necessárias para restaurar a estabilidade do sistema o mais rápido possível.
+                  Dentro de 1 hora enviaremos atualizações. Agradecemos a compreensão.</label>
+                <label class="check-aba"><input type="checkbox">Informamos que a causa raiz da instabilidade no ambiente Aludra já foi identificada. Nossa equipe está focada em solucionar essa questão o mais rápido possível. 
+                  Nossa previsão para reestabelecer o serviço é de 1 hora. Agradecemos a compreensão.</label>
+                <label class="check-aba"><input type="checkbox">Informamos que o acesso ao ambiente Aludra foi completamente normalizado. Todas as funcionalidades estão operando sem interrupções. 
+                  Nossa equipe técnica empregou todos os seus esforços para a rápida solução do ocorrido. Agradecemos a compreensão.</label>
+                <div class="text-area-options">
+                  <label for="emailPersonalizado4"></label>
+              <textarea id="emailaPersonalizado4" placeholder="Personalize o Email"></textarea>
+                  </div>
+
+                  <div class="botoes">
+                    <button onclick="salvarOpcoes('email4')">Salvar</button>
+                    <button onclick="fecharAba('email4','checkboxEmail4')">Cancelar</button>
+                    
+                  </div>
+              </div>
+          </div>
+
+          </div>  
 
             <button onclick="confirmUpdate(4)">Enviar Atualização</button>
             <button onclick="closeModal(4)">Cancelar</button>
         </div>
     </div>
+
+
+
+
+
     <div id="modal5" class="modal">
         <div class="modal-content">
           <h2>Atualziar status - <b>Vega</b></h2>
-          <label for="username">Usuário:</label>
-          <input type="text" id="usuario5" name="username" />
-          <label for="pass">Senha:</label>
-          <input type="password" id="pass" name="password" minlength="8" required />
-
             <label for="justificativa5">Justificativa:</label>
             <textarea id="justificativa5" placeholder="Digite a justificativa"></textarea>
 
-            <label class="modal-check">Atualizar Status para clientes
-                <input type="checkbox">
+            <div class="container-check">
+              <div>
+            <label class="modal-check" onclick="openAba(5, 'clientes')">Atualizar Status para clientes
+              <input id="checkboxClientes5" type="checkbox">
                 <span class="checkmark"></span>
               </label>
+            </div>
+            <div id="aba-clientes5" class="aba-container" style="display: none;">
+              <h3>Opções para <b>Atualizar Status</b> para clientes:</h3>
+                <label class="check-aba"><input type="checkbox" id="opcao1_cliente5" >O ambiente Bellatrix está operando normalmente.</label>
+                <label class="check-aba"><input type="checkbox" id="opcao2_cliente5" >Estamos enfrentando instabilidade momentânea no ambiente.</label>
+                <label class="check-aba"><input type="checkbox" id="opcao3_cliente5">O ambiente está momentâneamente indisponível. </label>
+                
+                <div class="text-area-options">
+                <label for="statusPersonalizado5"></label>
+            <textarea id="statusPersonalizado5" placeholder="Personalize o Status"></textarea>
+                </div>
+                <div class="botoes">
+                  <button onclick="salvarOpcoes('clientes5')">Salvar</button>
+                  <button onclick="fecharAba('clientes5','checkboxClientes5')">Cancelar</button>
+                  
+              </div>
+              </div>
+
+              <div>
+                <label class="modal-check" onclick="openAba(5, 'noticia')">Publicar notícia na página de acesso
+                  <input id="checkboxNoticias5" type="checkbox">
+                  <span class="checkmark"></span>
+                </label>
+
+                <div id="aba-noticia5" class="aba-container" style="display: none;">
+                  <h3>Opções para Publicar notícia na página de acesso</h3>
+                  <label class="check-aba"><input type="checkbox">Estamos enfrentando uma instabilidade momentânea 
+                    no ambiente Vega. Nossa equipe está atuando para a rápida estabilização do ambiente.</label>
+                  <label class="check-aba"><input type="checkbox">Identificamos uma instabilidade no ambiente Vega.
+                    Nossa equipe técnica está atuando para a rápida normalização do ambiente.</label>
+                  <label class="check-aba"><input type="checkbox">Informamos que a instabilidade relatada no ambiente 
+                    Vega foi completamente normalizada. Agradecemos a compreensão.</label>
+  
+                  <div class="text-area-options">
+                    <label for="noticiaPersonalizada5"></label>
+                <textarea id="noticiaPersonalizada5" placeholder="Personalize a Notícia"></textarea>
+                    </div>
+
+                    <div class="botoes">
+                      <button onclick="salvarOpcoes('noticia5')">Salvar</button>
+                      <button onclick="fecharAba('noticia5','checkboxNoticias5')">Cancelar</button>
+                      
+                    </div>
+               </div>
+            </div>
             
             
-            <label class="modal-check">Publicar notícia na página de acesso
-                <input type="checkbox">
-                <span class="checkmark"></span>
-              </label>
               
-              <label class="modal-check">Enviar comunicado por email
-                <input type="checkbox">
+            <div>
+              <label class="modal-check" onclick="openAba(5, 'email')">Enviar comunicado por email
+                <input id="checkboxEmail5" type="checkbox">
                 <span class="checkmark"></span>
               </label>
+
+              <div id="aba-email5" class="aba-container" style="display: none;">
+                <h3>Opções para Enviar comunicado por email</h3>
+                <label class="check-aba"><input type="checkbox">Informamos que estamos enfrentando uma instabilidade no ambiente Vega, o que tem afetado o acesso e o funcionamento adequado do serviço. 
+                  Nossa equipe técnica está ciente do problema e trabalhando intensamente para resolvê-lo o mais rápido possível.
+                  Dentro de uma hora, enviaremos uma atualização sobre a situação e as medidas que estamos adotando para solucionar o problema. Agradecemos a compreensão.</label>
+                <label class="check-aba"><input type="checkbox">Estamos enfrentando uma indisponibilidade momentânea no ambiente Vega. Nossa equipe técnica está tomando todas as medidas necessárias para restaurar a estabilidade do sistema o mais rápido possível.
+                  Dentro de 1 hora enviaremos atualizações. Agradecemos a compreensão.</label>
+                <label class="check-aba"><input type="checkbox">Informamos que a causa raiz da instabilidade no ambiente Vega já foi identificada. Nossa equipe está focada em solucionar essa questão o mais rápido possível. 
+                  Nossa previsão para reestabelecer o serviço é de 1 hora. Agradecemos a compreensão.</label>
+                <label class="check-aba"><input type="checkbox">Informamos que o acesso ao ambiente Vega foi completamente normalizado. Todas as funcionalidades estão operando sem interrupções. 
+                  Nossa equipe técnica empregou todos os seus esforços para a rápida solução do ocorrido. Agradecemos a compreensão.</label>
+                <div class="text-area-options">
+                  <label for="emailPersonalizado5"></label>
+              <textarea id="emailaPersonalizado5" placeholder="Personalize o Email"></textarea>
+                  </div>
+
+                  <div class="botoes">
+                    <button onclick="salvarOpcoes('email5')">Salvar</button>
+                    <button onclick="fecharAba('email5','checkboxEmail5')">Cancelar</button>
+                    
+                  </div>
+              </div>
+          </div>
+
+          </div>  
 
             <button onclick="confirmUpdate(5)">Enviar Atualização</button>
             <button onclick="closeModal(5)">Cancelar</button>
         </div>
     </div>
+
+
+
+
     <div id="modal6" class="modal">
         <div class="modal-content">
           <h2>Atualizar status - <b>Tauri</b></h2>
-          <label for="username">Usuário:</label>
-          <input type="text" id="usuario6" name="username" />
-          <label for="pass">Senha:</label>
-          <input type="password" id="pass" name="password" minlength="8" required />
-
-            <label for="justificativa6">Justificativa:</label>
+          <label for="justificativa6">Justificativa:</label>
             <textarea id="justificativa6" placeholder="Digite a justificativa"></textarea>
 
-            <label class="modal-check">Atualizar Status para clientes
-                <input type="checkbox">
+            <div class="container-check">
+              <div>
+            <label class="modal-check" onclick="openAba(6, 'clientes')">Atualizar Status para clientes
+              <input id="checkboxClientes6" type="checkbox">
                 <span class="checkmark"></span>
               </label>
+            </div>
+            <div id="aba-clientes6" class="aba-container" style="display: none;">
+              <h3>Opções para <b>Atualizar Status</b> para clientes:</h3>
+                <label class="check-aba"><input type="checkbox" id="opcao1_cliente6">O ambiente Tauri está operando normalmente.</label>
+                <label class="check-aba"><input type="checkbox" id="opcao2_cliente6">Estamos enfrentando instabilidade momentânea no ambiente.</label>
+                <label class="check-aba"><input type="checkbox" id="opcao3_cliente6">O ambiente está momentâneamente indisponível. </label>
+                
+                <div class="text-area-options">
+                <label for="statusPersonalizado6"></label>
+            <textarea id="statusPersonalizado6" placeholder="Personalize o Status"></textarea>
+                </div>
+                <div class="botoes">
+                  <button onclick="salvarOpcoes('clientes6')">Salvar</button>
+                  <button onclick="fecharAba('clientes6','checkboxClientes6')">Cancelar</button>
+                  
+              </div>
+              </div>
+
+              <div>
+                <label class="modal-check" onclick="openAba(6, 'noticia')">Publicar notícia na página de acesso
+                  <input id="checkboxNoticias6" type="checkbox">
+                  <span class="checkmark"></span>
+                </label>
+
+                <div id="aba-noticia6" class="aba-container" style="display: none;">
+                  <h3>Opções para Publicar notícia na página de acesso</h3>
+                  <label class="check-aba"><input type="checkbox">Estamos enfrentando uma instabilidade momentânea 
+                    no ambiente Tauri. Nossa equipe está atuando para a rápida estabilização do ambiente.</label>
+                  <label class="check-aba"><input type="checkbox">Identificamos uma instabilidade no ambiente Tauri.
+                    Nossa equipe técnica está atuando para a rápida normalização do ambiente.</label>
+                  <label class="check-aba"><input type="checkbox">Informamos que a instabilidade relatada no ambiente 
+                    Tauri foi completamente normalizada. Agradecemos a compreensão.</label>
+  
+                  <div class="text-area-options">
+                    <label for="noticiaPersonalizada6"></label>
+                <textarea id="noticiaPersonalizada6" placeholder="Personalize a Notícia"></textarea>
+                    </div>
+
+                    <div class="botoes">
+                      <button onclick="salvarOpcoes('noticia6')">Salvar</button>
+                      <button onclick="fecharAba('noticia6','checkboxNoticias6')">Cancelar</button>
+                      
+                    </div>
+               </div>
+            </div>
             
             
-            <label class="modal-check">Publicar notícia na página de acesso
-                <input type="checkbox">
-                <span class="checkmark"></span>
-              </label>
               
-              <label class="modal-check">Enviar comunicado por email
-                <input type="checkbox">
+            <div>
+              <label class="modal-check" onclick="openAba(6, 'email')">Enviar comunicado por email
+                <input id="checkboxEmail6" type="checkbox">
                 <span class="checkmark"></span>
               </label>
+
+              <div id="aba-email6" class="aba-container" style="display: none;">
+                <h3>Opções para Enviar comunicado por email</h3>
+                <label class="check-aba"><input type="checkbox">Informamos que estamos enfrentando uma instabilidade no ambiente Tauri, o que tem afetado o acesso e o funcionamento adequado do serviço. 
+                  Nossa equipe técnica está ciente do problema e trabalhando intensamente para resolvê-lo o mais rápido possível.
+                  Dentro de uma hora, enviaremos uma atualização sobre a situação e as medidas que estamos adotando para solucionar o problema. Agradecemos a compreensão.</label>
+                <label class="check-aba"><input type="checkbox">Estamos enfrentando uma indisponibilidade momentânea no ambiente Tauri. Nossa equipe técnica está tomando todas as medidas necessárias para restaurar a estabilidade do sistema o mais rápido possível.
+                  Dentro de 1 hora enviaremos atualizações. Agradecemos a compreensão.</label>
+                <label class="check-aba"><input type="checkbox">Informamos que a causa raiz da instabilidade no ambiente Tauri já foi identificada. Nossa equipe está focada em solucionar essa questão o mais rápido possível. 
+                  Nossa previsão para reestabelecer o serviço é de 1 hora. Agradecemos a compreensão.</label>
+                <label class="check-aba"><input type="checkbox">Informamos que o acesso ao ambiente Tauri foi completamente normalizado. Todas as funcionalidades estão operando sem interrupções. 
+                  Nossa equipe técnica empregou todos os seus esforços para a rápida solução do ocorrido. Agradecemos a compreensão.</label>
+                <div class="text-area-options">
+                  <label for="emailPersonalizado6"></label>
+              <textarea id="emailaPersonalizado6" placeholder="Personalize o Email"></textarea>
+                  </div>
+
+                  <div class="botoes">
+                    <button onclick="salvarOpcoes('email6')">Salvar</button>
+                    <button onclick="fecharAba('email6','checkboxEmail6')">Cancelar</button>
+                    
+                  </div>
+              </div>
+          </div>
+
+          </div>  
 
             <button onclick="confirmUpdate(6)">Enviar Atualização</button>
             <button onclick="closeModal(6)">Cancelar</button>
         </div>
     </div>
+
+
+
+
+
+
     <div id="modal7" class="modal">
         <div class="modal-content">
           <h2>Atualizar status - <b>Electra</b></h2>
-          <label for="username">Usuário:</label>
-          <input type="text" id="usuario7" name="username" />
-          <label for="pass">Senha:</label>
-          <input type="password" id="pass" name="password" minlength="8" required />
-
             <label for="justificativa7">Justificativa:</label>
             <textarea id="justificativa7" placeholder="Digite a justificativa"></textarea>
 
-            <label class="modal-check">Atualizar Status para clientes
-                <input type="checkbox">
+            <div class="container-check">
+              <div>
+            <label class="modal-check" onclick="openAba(7, 'clientes')">Atualizar Status para clientes
+              <input id="checkboxClientes7" type="checkbox">
                 <span class="checkmark"></span>
               </label>
+            </div>
+            <div id="aba-clientes7" class="aba-container" style="display: none;">
+              <h3>Opções para <b>Atualizar Status</b> para clientes:</h3>
+                <label class="check-aba"><input type="checkbox" id="opcao1_cliente7" >O ambiente Electra está operando normalmente.</label>
+                <label class="check-aba"><input type="checkbox" id="opcao2_cliente7">Estamos enfrentando instabilidade momentânea no ambiente.</label>
+                <label class="check-aba"><input type="checkbox" id="opcao3_cliente7">O ambiente está momentâneamente indisponível. </label>
+                
+                <div class="text-area-options">
+                <label for="statusPersonalizado7"></label>
+            <textarea id="statusPersonalizado7" placeholder="Personalize o Status"></textarea>
+                </div>
+                <div class="botoes">
+                  <button onclick="salvarOpcoes('clientes7')">Salvar</button>
+                  <button onclick="fecharAba('clientes7','checkboxClientes7')">Cancelar</button>
+                  
+              </div>
+              </div>
+
+              <div>
+                <label class="modal-check" onclick="openAba(7, 'noticia')">Publicar notícia na página de acesso
+                  <input id="checkboxNoticias7" type="checkbox">
+                  <span class="checkmark"></span>
+                </label>
+
+                <div id="aba-noticia7" class="aba-container" style="display: none;">
+                  <h3>Opções para Publicar notícia na página de acesso</h3>
+                  <label class="check-aba"><input type="checkbox">Estamos enfrentando uma instabilidade momentânea 
+                    no ambiente Electra. Nossa equipe está atuando para a rápida estabilização do ambiente.</label>
+                  <label class="check-aba"><input type="checkbox">Identificamos uma instabilidade no ambiente Electra.
+                    Nossa equipe técnica está atuando para a rápida normalização do ambiente.</label>
+                  <label class="check-aba"><input type="checkbox">Informamos que a instabilidade relatada no ambiente 
+                    Electra foi completamente normalizada. Agradecemos a compreensão.</label>
+  
+                  <div class="text-area-options">
+                    <label for="noticiaPersonalizada7"></label>
+                <textarea id="noticiaPersonalizada7" placeholder="Personalize a Notícia"></textarea>
+                    </div>
+
+                    <div class="botoes">
+                      <button onclick="salvarOpcoes('noticia7')">Salvar</button>
+                      <button onclick="fecharAba('noticia7','checkboxNoticias7')">Cancelar</button>
+                      
+                    </div>
+               </div>
+            </div>
             
             
-            <label class="modal-check">Publicar notícia na página de acesso
-                <input type="checkbox">
-                <span class="checkmark"></span>
-              </label>
               
-              <label class="modal-check">Enviar comunicado por email
-                <input type="checkbox">
+            <div>
+              <label class="modal-check" onclick="openAba(7, 'email')">Enviar comunicado por email
+                <input id="checkboxEmail7" type="checkbox">
                 <span class="checkmark"></span>
               </label>
+
+              <div id="aba-email7" class="aba-container" style="display: none;">
+                <h3>Opções para Enviar comunicado por email</h3>
+                <label class="check-aba"><input type="checkbox">Informamos que estamos enfrentando uma instabilidade no ambiente Electra, o que tem afetado o acesso e o funcionamento adequado do serviço. 
+                  Nossa equipe técnica está ciente do problema e trabalhando intensamente para resolvê-lo o mais rápido possível.
+                  Dentro de uma hora, enviaremos uma atualização sobre a situação e as medidas que estamos adotando para solucionar o problema. Agradecemos a compreensão.</label>
+                <label class="check-aba"><input type="checkbox">Estamos enfrentando uma indisponibilidade momentânea no ambiente Electra. Nossa equipe técnica está tomando todas as medidas necessárias para restaurar a estabilidade do sistema o mais rápido possível.
+                  Dentro de 1 hora enviaremos atualizações. Agradecemos a compreensão.</label>
+                <label class="check-aba"><input type="checkbox">Informamos que a causa raiz da instabilidade no ambiente Electra já foi identificada. Nossa equipe está focada em solucionar essa questão o mais rápido possível. 
+                  Nossa previsão para reestabelecer o serviço é de 1 hora. Agradecemos a compreensão.</label>
+                <label class="check-aba"><input type="checkbox">Informamos que o acesso ao ambiente Electra foi completamente normalizado. Todas as funcionalidades estão operando sem interrupções. 
+                  Nossa equipe técnica empregou todos os seus esforços para a rápida solução do ocorrido. Agradecemos a compreensão.</label>
+                <div class="text-area-options">
+                  <label for="emailPersonalizado7"></label>
+              <textarea id="emailaPersonalizado7" placeholder="Personalize o Email"></textarea>
+                  </div>
+
+                  <div class="botoes">
+                    <button onclick="salvarOpcoes('email7')">Salvar</button>
+                    <button onclick="fecharAba('email7','checkboxEmail7')">Cancelar</button>
+                    
+                  </div>
+              </div>
+          </div>
+
+          </div>  
 
             <button onclick="confirmUpdate(7)">Enviar Atualização</button>
             <button onclick="closeModal(7)">Cancelar</button>
         </div>
     </div>
+
+
+
+
+
     <div id="modal8" class="modal">
         <div class="modal-content">
           <h2>Atualizar status - <b>Polaris</b></h2>
-          <label for="username">Usuário:</label>
-          <input type="text" id="usuario8" name="username" />
-          <label for="pass">Senha:</label>
-          <input type="password" id="pass" name="password" minlength="8" required />
-
             <label for="justificativa8">Justificativa:</label>
             <textarea id="justificativa8" placeholder="Digite a justificativa"></textarea>
 
-            <label class="modal-check">Atualizar Status para clientes
-                <input type="checkbox">
+            <div class="container-check">
+              <div>
+            <label class="modal-check" onclick="openAba(8, 'clientes')">Atualizar Status para clientes
+              <input id="checkboxClientes8" type="checkbox">
                 <span class="checkmark"></span>
               </label>
+            </div>
+            <div id="aba-clientes8" class="aba-container" style="display: none;">
+              <h3>Opções para <b>Atualizar Status</b> para clientes:</h3>
+                <label class="check-aba"><input type="checkbox" id="opcao1_cliente8">O ambiente Polaris está operando normalmente.</label>
+                <label class="check-aba"><input type="checkbox" id="opcao2_cliente8">Estamos enfrentando instabilidade momentânea no ambiente.</label>
+                <label class="check-aba"><input type="checkbox" id="opcao3_cliente8">O ambiente está momentâneamente indisponível. </label>
+                
+                <div class="text-area-options">
+                <label for="statusPersonalizado8"></label>
+            <textarea id="statusPersonalizado8" placeholder="Personalize o Status"></textarea>
+                </div>
+                <div class="botoes">
+                  <button onclick="salvarOpcoes('clientes8')">Salvar</button>
+                  <button onclick="fecharAba('clientes8','checkboxClientes8')">Cancelar</button>
+                  
+              </div>
+              </div>
+
+              <div>
+                <label class="modal-check" onclick="openAba(8, 'noticia')">Publicar notícia na página de acesso
+                  <input id="checkboxNoticias8" type="checkbox">
+                  <span class="checkmark"></span>
+                </label>
+
+                <div id="aba-noticia8" class="aba-container" style="display: none;">
+                  <h3>Opções para Publicar notícia na página de acesso</h3>
+                  <label class="check-aba"><input type="checkbox">Estamos enfrentando uma instabilidade momentânea 
+                    no ambiente Polaris. Nossa equipe está atuando para a rápida estabilização do ambiente.</label>
+                  <label class="check-aba"><input type="checkbox">Identificamos uma instabilidade no ambiente Polaris.
+                    Nossa equipe técnica está atuando para a rápida normalização do ambiente.</label>
+                  <label class="check-aba"><input type="checkbox">Informamos que a instabilidade relatada no ambiente 
+                    Polaris foi completamente normalizada. Agradecemos a compreensão.</label>
+  
+                  <div class="text-area-options">
+                    <label for="noticiaPersonalizada8"></label>
+                <textarea id="noticiaPersonalizada8" placeholder="Personalize a Notícia"></textarea>
+                    </div>
+
+                    <div class="botoes">
+                      <button onclick="salvarOpcoes('noticia8')">Salvar</button>
+                      <button onclick="fecharAba('noticia8','checkboxNoticias8')">Cancelar</button>
+                      
+                    </div>
+               </div>
+            </div>
             
             
-            <label class="modal-check">Publicar notícia na página de acesso
-                <input type="checkbox">
-                <span class="checkmark"></span>
-              </label>
               
-              <label class="modal-check">Enviar comunicado por email
-                <input type="checkbox">
+            <div>
+              <label class="modal-check" onclick="openAba(8, 'email')">Enviar comunicado por email
+                <input id="checkboxEmail8" type="checkbox">
                 <span class="checkmark"></span>
               </label>
+
+              <div id="aba-email8" class="aba-container" style="display: none;">
+                <h3>Opções para Enviar comunicado por email</h3>
+                <label class="check-aba"><input type="checkbox">Informamos que estamos enfrentando uma instabilidade no ambiente Polaris, o que tem afetado o acesso e o funcionamento adequado do serviço. 
+                  Nossa equipe técnica está ciente do problema e trabalhando intensamente para resolvê-lo o mais rápido possível.
+                  Dentro de uma hora, enviaremos uma atualização sobre a situação e as medidas que estamos adotando para solucionar o problema. Agradecemos a compreensão.</label>
+                <label class="check-aba"><input type="checkbox">Estamos enfrentando uma indisponibilidade momentânea no ambiente Polaris. Nossa equipe técnica está tomando todas as medidas necessárias para restaurar a estabilidade do sistema o mais rápido possível.
+                  Dentro de 1 hora enviaremos atualizações. Agradecemos a compreensão.</label>
+                <label class="check-aba"><input type="checkbox">Informamos que a causa raiz da instabilidade no ambiente Polaris já foi identificada. Nossa equipe está focada em solucionar essa questão o mais rápido possível. 
+                  Nossa previsão para reestabelecer o serviço é de 1 hora. Agradecemos a compreensão.</label>
+                <label class="check-aba"><input type="checkbox">Informamos que o acesso ao ambiente Polaris foi completamente normalizado. Todas as funcionalidades estão operando sem interrupções. 
+                  Nossa equipe técnica empregou todos os seus esforços para a rápida solução do ocorrido. Agradecemos a compreensão.</label>
+                <div class="text-area-options">
+                  <label for="emailPersonalizado8"></label>
+              <textarea id="emailaPersonalizado8" placeholder="Personalize o Email"></textarea>
+                  </div>
+
+                  <div class="botoes">
+                    <button onclick="salvarOpcoes('email8')">Salvar</button>
+                    <button onclick="fecharAba('email8','checkboxEmail8')">Cancelar</button>
+                    
+                  </div>
+              </div>
+          </div>
+
+          </div>  
 
             <button onclick="confirmUpdate(8)">Enviar Atualização</button>
             <button onclick="closeModal(8)">Cancelar</button>
         </div>
     </div>
+
+
+
+
     <div id="modal9" class="modal">
         <div class="modal-content">
           <h2>Atualizar status - <b>Altair</b></h2>
-          <label for="username">Usuário:</label>
-          <input type="text" id="usuario9" name="username" />
-          <label for="pass">Senha:</label>
-          <input type="password" id="pass" name="password" minlength="8" required />
-
             <label for="justificativa9">Justificativa:</label>
             <textarea id="justificativa9" placeholder="Digite a justificativa"></textarea>
 
-            <label class="modal-check">Atualizar Status para clientes
-                <input type="checkbox">
+            <div class="container-check">
+              <div>
+            <label class="modal-check" onclick="openAba(9, 'clientes')">Atualizar Status para clientes
+              <input id="checkboxClientes9" type="checkbox">
                 <span class="checkmark"></span>
               </label>
+            </div>
+            <div id="aba-clientes9" class="aba-container" style="display: none;">
+              <h3>Opções para <b>Atualizar Status</b> para clientes:</h3>
+                <label class="check-aba"><input type="checkbox" id="opcao1_cliente9">O ambiente Altair está operando normalmente.</label>
+                <label class="check-aba"><input type="checkbox" id="opcao2_cliente9">Estamos enfrentando instabilidade momentânea no ambiente.</label>
+                <label class="check-aba"><input type="checkbox" id="opcao3_cliente9">O ambiente está momentâneamente indisponível. </label>
+                
+                <div class="text-area-options">
+                <label for="statusPersonalizado9"></label>
+            <textarea id="statusPersonalizado9" placeholder="Personalize o Status"></textarea>
+                </div>
+                <div class="botoes">
+                  <button onclick="salvarOpcoes('clientes9')">Salvar</button>
+                  <button onclick="fecharAba('clientes9','checkboxClientes9')">Cancelar</button>
+                  
+              </div>
+              </div>
+
+              <div>
+                <label class="modal-check" onclick="openAba(9, 'noticia')">Publicar notícia na página de acesso
+                  <input id="checkboxNoticias9" type="checkbox">
+                  <span class="checkmark"></span>
+                </label>
+
+                <div id="aba-noticia9" class="aba-container" style="display: none;">
+                  <h3>Opções para Publicar notícia na página de acesso</h3>
+                  <label class="check-aba"><input type="checkbox">Estamos enfrentando uma instabilidade momentânea 
+                    no ambiente Altair. Nossa equipe está atuando para a rápida estabilização do ambiente.</label>
+                  <label class="check-aba"><input type="checkbox">Identificamos uma instabilidade no ambiente Altair.
+                    Nossa equipe técnica está atuando para a rápida normalização do ambiente.</label>
+                  <label class="check-aba"><input type="checkbox">Informamos que a instabilidade relatada no ambiente 
+                    Altair foi completamente normalizada. Agradecemos a compreensão.</label>
+  
+                  <div class="text-area-options">
+                    <label for="noticiaPersonalizada9"></label>
+                <textarea id="noticiaPersonalizada9" placeholder="Personalize a Notícia"></textarea>
+                    </div>
+
+                    <div class="botoes">
+                      <button onclick="salvarOpcoes('noticia9')">Salvar</button>
+                      <button onclick="fecharAba('noticia9','checkboxNoticias9')">Cancelar</button>
+                      
+                    </div>
+               </div>
+            </div>
             
             
-            <label class="modal-check">Publicar notícia na página de acesso
-                <input type="checkbox">
-                <span class="checkmark"></span>
-              </label>
               
-              <label class="modal-check">Enviar comunicado por email
-                <input type="checkbox">
+            <div>
+              <label class="modal-check" onclick="openAba(9, 'email')">Enviar comunicado por email
+                <input id="checkboxEmail9" type="checkbox">
                 <span class="checkmark"></span>
               </label>
+
+              <div id="aba-email9" class="aba-container" style="display: none;">
+                <h3>Opções para Enviar comunicado por email</h3>
+                <label class="check-aba"><input type="checkbox">Informamos que estamos enfrentando uma instabilidade no ambiente Altair, o que tem afetado o acesso e o funcionamento adequado do serviço. 
+                  Nossa equipe técnica está ciente do problema e trabalhando intensamente para resolvê-lo o mais rápido possível.
+                  Dentro de uma hora, enviaremos uma atualização sobre a situação e as medidas que estamos adotando para solucionar o problema. Agradecemos a compreensão.</label>
+                <label class="check-aba"><input type="checkbox">Estamos enfrentando uma indisponibilidade momentânea no ambiente Altair. Nossa equipe técnica está tomando todas as medidas necessárias para restaurar a estabilidade do sistema o mais rápido possível.
+                  Dentro de 1 hora enviaremos atualizações. Agradecemos a compreensão.</label>
+                <label class="check-aba"><input type="checkbox">Informamos que a causa raiz da instabilidade no ambiente Altair já foi identificada. Nossa equipe está focada em solucionar essa questão o mais rápido possível. 
+                  Nossa previsão para reestabelecer o serviço é de 1 hora. Agradecemos a compreensão.</label>
+                <label class="check-aba"><input type="checkbox">Informamos que o acesso ao ambiente Altair foi completamente normalizado. Todas as funcionalidades estão operando sem interrupções. 
+                  Nossa equipe técnica empregou todos os seus esforços para a rápida solução do ocorrido. Agradecemos a compreensão.</label>
+                <div class="text-area-options">
+                  <label for="emailPersonalizado9"></label>
+              <textarea id="emailaPersonalizado9" placeholder="Personalize o Email"></textarea>
+                  </div>
+
+                  <div class="botoes">
+                    <button onclick="salvarOpcoes('email9')">Salvar</button>
+                    <button onclick="fecharAba('email9','checkboxEmail9')">Cancelar</button>
+                    
+                  </div>
+              </div>
+          </div>
+
+          </div>  
 
             <button onclick="confirmUpdate(9)">Enviar Atualização</button>
             <button onclick="closeModal(9)">Cancelar</button>
         </div>
     </div>
+
+
+
+
+
+
     <div id="modal10" class="modal">
         <div class="modal-content">
           <h2>Atualizar status - <b>Deneb</b></h2>
-          <label for="username">Usuário:</label>
-          <input type="text" id="usuario10" name="username" />
-          <label for="pass">Senha:</label>
-          <input type="password" id="pass" name="password" minlength="8" required />
-
             <label for="justificativa10">Justificativa:</label>
             <textarea id="justificativa10" placeholder="Digite a justificativa"></textarea>
 
-            <label class="modal-check">Atualizar Status para clientes
-                <input type="checkbox">
+            <div class="container-check">
+              <div>
+            <label class="modal-check" onclick="openAba(10, 'clientes')">Atualizar Status para clientes
+              <input id="checkboxClientes10" type="checkbox">
                 <span class="checkmark"></span>
               </label>
+            </div>
+            <div id="aba-clientes10" class="aba-container" style="display: none;">
+              <h3>Opções para <b>Atualizar Status</b> para clientes:</h3>
+                <label class="check-aba"><input type="checkbox" id="opcao1_cliente10">O ambiente Deneb está operando normalmente.</label>
+                <label class="check-aba"><input type="checkbox" id="opcao2_cliente10">Estamos enfrentando instabilidade momentânea no ambiente.</label>
+                <label class="check-aba"><input type="checkbox" id="opcao3_cliente10">O ambiente está momentâneamente indisponível. </label>
+                
+                <div class="text-area-options">
+                <label for="statusPersonalizado10"></label>
+            <textarea id="statusPersonalizado10" placeholder="Personalize o Status"></textarea>
+                </div>
+                <div class="botoes">
+                  <button onclick="salvarOpcoes('clientes10')">Salvar</button>
+                  <button onclick="fecharAba('clientes10','checkboxClientes10')">Cancelar</button>
+                 
+              </div>
+              </div>
+
+              <div>
+                <label class="modal-check" onclick="openAba(10, 'noticia')">Publicar notícia na página de acesso
+                  <input id="checkboxNoticias10" type="checkbox">
+                  <span class="checkmark"></span>
+                </label>
+
+                <div id="aba-noticia10" class="aba-container" style="display: none;">
+                  <h3>Opções para Publicar notícia na página de acesso</h3>
+                  <label class="check-aba"><input type="checkbox">Estamos enfrentando uma instabilidade momentânea 
+                    no ambiente Deneb. Nossa equipe está atuando para a rápida estabilização do ambiente.</label>
+                  <label class="check-aba"><input type="checkbox">Identificamos uma instabilidade no ambiente Deneb.
+                    Nossa equipe técnica está atuando para a rápida normalização do ambiente.</label>
+                  <label class="check-aba"><input type="checkbox">Informamos que a instabilidade relatada no ambiente 
+                    Deneb foi completamente normalizada. Agradecemos a compreensão.</label>
+  
+                  <div class="text-area-options">
+                    <label for="noticiaPersonalizada10"></label>
+                <textarea id="noticiaPersonalizada10" placeholder="Personalize a Notícia"></textarea>
+                    </div>
+
+                    <div class="botoes">
+                      <button onclick="salvarOpcoes('noticia10')">Salvar</button>
+                      <button onclick="fecharAba('noticia10','checkboxNoticias10')">Cancelar</button>
+                      
+                    </div>
+               </div>
+            </div>
             
             
-            <label class="modal-check">Publicar notícia na página de acesso
-                <input type="checkbox">
-                <span class="checkmark"></span>
-              </label>
               
-              <label class="modal-check">Enviar comunicado por email
-                <input type="checkbox">
+            <div>
+              <label class="modal-check" onclick="openAba(10, 'email')">Enviar comunicado por email
+                <input id="checkboxEmail10" type="checkbox">
                 <span class="checkmark"></span>
               </label>
+
+              <div id="aba-email10" class="aba-container" style="display: none;">
+                <h3>Opções para Enviar comunicado por email</h3>
+                <label class="check-aba"><input type="checkbox">Informamos que estamos enfrentando uma instabilidade no ambiente Deneb, o que tem afetado o acesso e o funcionamento adequado do serviço. 
+                  Nossa equipe técnica está ciente do problema e trabalhando intensamente para resolvê-lo o mais rápido possível.
+                  Dentro de uma hora, enviaremos uma atualização sobre a situação e as medidas que estamos adotando para solucionar o problema. Agradecemos a compreensão.</label>
+                <label class="check-aba"><input type="checkbox">Estamos enfrentando uma indisponibilidade momentânea no ambiente Deneb. Nossa equipe técnica está tomando todas as medidas necessárias para restaurar a estabilidade do sistema o mais rápido possível.
+                  Dentro de 1 hora enviaremos atualizações. Agradecemos a compreensão.</label>
+                <label class="check-aba"><input type="checkbox">Informamos que a causa raiz da instabilidade no ambiente Deneb já foi identificada. Nossa equipe está focada em solucionar essa questão o mais rápido possível. 
+                  Nossa previsão para reestabelecer o serviço é de 1 hora. Agradecemos a compreensão.</label>
+                <label class="check-aba"><input type="checkbox">Informamos que o acesso ao ambiente Deneb foi completamente normalizado. Todas as funcionalidades estão operando sem interrupções. 
+                  Nossa equipe técnica empregou todos os seus esforços para a rápida solução do ocorrido. Agradecemos a compreensão.</label>
+                <div class="text-area-options">
+                  <label for="emailPersonalizado10"></label>
+              <textarea id="emailaPersonalizado10" placeholder="Personalize o Email"></textarea>
+                  </div>
+
+                  <div class="botoes">
+                    <button onclick="salvarOpcoes('email10')">Salvar</button>
+                    <button onclick="fecharAba('email10','checkboxEmail10')">Cancelar</button>
+                    
+                  </div>
+              </div>
+          </div>
+
+          </div>  
 
             <button onclick="confirmUpdate(10)">Enviar Atualização</button>
             <button onclick="closeModal(10)">Cancelar</button>
